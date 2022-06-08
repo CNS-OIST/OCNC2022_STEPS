@@ -24,13 +24,13 @@ NITER = 10
 # The data collection time increment (s)
 DT = 0.001
 # The simulation endtime (s)
-INT = 0.101
+INT = 0.1
 
 # The number of molecules to be injected into the centre
-NINJECT = 10000    
+NINJECT = 1000
 
 # The number of tetrahedral elements to sample data from. 
-SAMPLE = 2000    
+SAMPLE = 500
 
 # The diffusion constant for our diffusing species (m^2/s)
 DCST= 20.0e-12
@@ -79,7 +79,7 @@ def gen_geom(meshPath, mdl):
                 tets.append(mesh.tets[pos])
 
         # Find the radial distance of the tetrahedrons to mesh center:
-        tetrads = np.array([np.linalg.norm(tet.center)*1e6 for tet in tets])
+        tetrads = np.array([np.linalg.norm(tet.center - ctet.center)*1e6 for tet in tets])
 
         print("Tetrahedron samples found")
 
