@@ -68,10 +68,10 @@ sim_wm = Simulation('Wmdirect', mdl, wmgeom, rng)
 rs = ResultSelector(sim_wm)
 
 # Specify which values should be saved, here all species counts in compartment "cyt"
-counts_tet = rs.cyt.ALL(Species).Count
+counts_wm = rs.cyt.ALL(Species).Count
 
 # Save these values every 0.001s
-sim_wm.toSave(counts_tet, dt=0.001)
+sim_wm.toSave(counts_wm, dt=0.001)
 
 # Signalize the start of a new run
 sim_wm.newRun()
@@ -87,14 +87,34 @@ sim_wm.run(0.5)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-# Import matplotlib via pylab
+# Create well-mixed deterministic solver
+sim_rk4 = Simulation('Wmrk4', mdl, wmgeom, rng)
+
+# Set the integration time-step (s)
+sim_rk4.setRk4DT(0.00001)
+
+# Declare values to be saved for the deterministic solver
+rs = ResultSelector(sim_rk4)
+counts_rk4 = rs.cyt.ALL(Species).Count
+sim_rk4.toSave(counts_rk4, dt=0.001)
+
+# Repeat the simulation process for the deterministic solver
+sim_rk4.newRun()
+sim_rk4.cyt.SA.Count = 10
+sim_rk4.cyt.SB.Conc = 3.32e-08
+sim_rk4.run(0.5)
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Import matplotlib
 from matplotlib import pyplot as plt
 
 # Use Matlpotlib functions to plot data from both simulations
 # Note that we access data from run 0
-plt.plot(counts_tet.time[0], counts_tet.data[0])
+plt.plot(counts_wm.time[0], counts_wm.data[0])
+plt.plot(counts_rk4.time[0], counts_rk4.data[0], color='black')
 
 plt.ylabel('Number of molecules')
 plt.xlabel('Time (sec)')
-plt.legend(counts_tet.labels)
+plt.legend(counts_wm.labels)
 plt.show()
