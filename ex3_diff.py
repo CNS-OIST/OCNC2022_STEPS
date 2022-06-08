@@ -27,10 +27,10 @@ DT = 0.001
 INT = 0.1
 
 # The number of molecules to be injected into the centre
-NINJECT = 1000
+NINJECT = 10000
 
 # The number of tetrahedral elements to sample data from. 
-SAMPLE = 500
+SAMPLE = 2000
 
 # The diffusion constant for our diffusing species (m^2/s)
 DCST= 20.0e-12
