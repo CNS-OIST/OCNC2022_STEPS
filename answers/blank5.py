@@ -17,7 +17,7 @@ with mdl_tet:
 
         # Add diffusion rules
 
-# Load the 'meshes/sp_0.1v_1046.inp' mesh and create a cyt compartment
+# Load the 'meshes/sp_0.1v_1046.msh' mesh and create a cyt compartment
 # The mesh is in micrometers and should be rescaled to meters
 
 # Create a new simulation that uses the 'Tetexact' solver 
