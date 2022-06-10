@@ -22,7 +22,7 @@ with mdl_tet:
 
 # Load the 'meshes/sp_0.1v_1046.msh' mesh and create a cyt compartment
 # The mesh is in micrometers and should be rescaled to meters
-mesh = TetMesh.LoadGmsh('meshes/sp_0.1v_1046.inp', 1e-6)
+mesh = TetMesh.LoadGmsh('meshes/sp_0.1v_1046.msh', 1e-6)
 
 with mesh:
     cyt = Compartment.Create(mesh.tets, vsys)
