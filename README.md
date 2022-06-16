@@ -1,3 +1,6 @@
-# OCNC2022_STEPS
+# STEPS tutorial for OCNC2022
 
-This is a test repository!
+Please clone this repository to your docker system for the tutorial
+```
+git clone https://github.com/CNS-OIST/ocnc2022steps.git
+```
