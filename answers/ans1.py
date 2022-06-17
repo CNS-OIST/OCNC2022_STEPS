@@ -26,3 +26,6 @@ with mdl:
         # MEKpERK -> MEKp + ERKp, rate constant 0.15
         MEKpERK >r[1]> MEKp + ERKp
         r[1].K = 0.15
+
+# Check that everything is in the model
+print(*mdl.ALL())

@@ -22,3 +22,6 @@ sim_wm.cyt.ERK.Conc = 1.5e-6
 
 # Run the simulation for 30 seconds
 sim_wm.run(30)
+
+# Access saved data
+print(counts_wm.data[0])
