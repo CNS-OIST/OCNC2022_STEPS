@@ -19,7 +19,7 @@ with mdl:
     with vsys:
         r = ReactionManager()
 
-        # MEKp + ERK <-> MEKpERK, rate constants 16.2*10e6 (forward) and 0.6 (backward)
+        # MEKp + ERK <-> MEKpERK, rate constants 16.2*1e6 (forward) and 0.6 (backward)
 
         # MEKpERK -> MEKp + ERKp, rate constant 0.15
 

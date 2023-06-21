@@ -114,7 +114,7 @@ def plotres(tidx, tpnts, res_mean, tetrads):
         raise ValueError('Time index is out of range.')
     t = tpnts[tidx]
 
-    plt.scatter(tetrads, res_mean[tidx,:], s=2)
+    plt.scatter(tetrads, res_mean[tidx,:], s=5)
     plt.xlabel('Radial distance of tetrahedron ($\mu$m)')            
     plt.ylabel('Concentration in tetrahedron ($\mu$M)')
     plt.title(f'Unbounded diffusion. Time: {t}s')

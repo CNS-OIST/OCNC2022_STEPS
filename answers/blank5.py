@@ -11,7 +11,7 @@ with mdl_tet:
         r = ReactionManager()
         # Previously declared reactions
         MEKp + ERK <r[1]> MEKpERK
-        r[1].K = 16.2*10e6, 0.6
+        r[1].K = 16.2*1e6, 0.6
         MEKpERK >r[1]> MEKp + ERKp
         r[1].K = 0.15
 
